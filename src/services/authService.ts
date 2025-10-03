@@ -18,4 +18,5 @@ const authenticateUser = async (email: string, password: string): Promise<UserRe
     }
   }
 };
-export { authenticateUser };
+
+export default authenticateUser;

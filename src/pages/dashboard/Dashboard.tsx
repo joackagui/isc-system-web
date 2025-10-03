@@ -34,7 +34,7 @@ interface Stats {
   num_procesos_finalizados: number;
 }
 
-export const DashboardPage = () => {
+const DashboardPage = () => {
   // get stats from the server
   const [stats, setStats] = useState<Stats>();
   useEffect(() => {
@@ -102,3 +102,5 @@ export const DashboardPage = () => {
     </Container>
   );
 };
+
+export default DashboardPage;

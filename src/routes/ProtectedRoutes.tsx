@@ -1,6 +1,6 @@
 import { LoaderFunction, LoaderFunctionArgs, Navigate, Params } from "react-router-dom";
 import Layout from "../layout/Layout";
-import { DashboardPage } from "../pages/dashboard/Dashboard";
+import DashboardPage from "../pages/dashboard/Dashboard";
 import RoleGuard from "./RoleGuard";
 import { getProcess, getStudentById } from "../services/processServicer";
 import CreateProcessPage from "../pages/CreateGraduation/CreateProcessPage";

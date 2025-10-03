@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { styled } from "@mui/material/styles";
 import { Outlet, useNavigate } from "react-router-dom";
-import Sidebar from "./Sidebar";
 import Box from "@mui/material/Box";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
+import Sidebar from "./Sidebar";
 import { useUserStore } from "../store/store";
 
 interface AppBarProps extends MuiAppBarProps {
@@ -70,6 +70,7 @@ const Layout = () => {
     {
       title: "Logout",
       onClick: () => {
+        localStorage.removeItem("sessionActive");
         localStorage.removeItem("token");
         clearUser();
         navigate("/login", { replace: true });
@@ -114,12 +115,12 @@ const Layout = () => {
               variant="subtitle1"
               noWrap
               color="primary"
-              textAlign={"right"}
+              textAlign="right"
               className="font-bold"
             >
               {user?.name}
             </Typography>
-            <Typography variant="subtitle2" color="textSecondary" textAlign={"right"}>
+            <Typography variant="subtitle2" color="textSecondary" textAlign="right">
               {TranslateRole(user?.roles?.join(", ") || "")}
             </Typography>
           </Box>
